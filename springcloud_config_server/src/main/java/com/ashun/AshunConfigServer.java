@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableConfigServer
-@RefreshScope
 public class AshunConfigServer {
 
     public static void main(String[] args) {
