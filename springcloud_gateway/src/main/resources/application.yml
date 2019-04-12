@@ -1,0 +1,29 @@
+###注册 中心
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8900/eureka/
+server:
+  port: 8901
+###网关名称
+spring:
+  application:
+    name: service-zuul
+  cloud:
+    config:
+    ####读取后缀
+      profile: uat
+      ####读取config-server注册地址
+      discovery:
+        service-id: config-server
+        enabled: true
+
+###开启监控断点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ribbon:
+  eureka:
+    enabled: true
