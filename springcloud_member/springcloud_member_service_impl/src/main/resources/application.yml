@@ -1,12 +1,20 @@
+
 ###服务启动端口号
 server:
-  port: 8001
-ashun : 222
+  port: 8003
 ###服务名称(服务注册到eureka名称)
 spring:
   application:
     ####注册中心应用名称
     name: ashun-member
+  cloud:
+    config:
+      ####读取后缀
+      profile: dev
+      ####读取config-server注册地址
+      discovery:
+        service-id: config-server
+        enabled: true
 ###服务注册到eureka地址
 eureka:
   client:
@@ -16,6 +24,12 @@ eureka:
     register-with-eureka: true
     ###是否需要从eureka上获取注册信息
     fetch-registry: true
-
+#开启监控断点
+#managementendpoints.web.exposure.include=*
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 

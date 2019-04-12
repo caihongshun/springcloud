@@ -19,7 +19,7 @@ spring:
           ####搜索目录
           search-paths:
             - ashun
-      ####读取分支      
+      ####读取分支
       label: master
 
 

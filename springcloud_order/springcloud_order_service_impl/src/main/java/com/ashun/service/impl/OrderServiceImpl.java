@@ -7,6 +7,8 @@ import com.ashun.feign.MemberServiceFeign;
 import com.ashun.service.OrderService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,10 +19,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @create: 2019-03-20 15:12
  **/
 @RestController
+@RefreshScope
 public class OrderServiceImpl extends BaseApiService implements OrderService {
 
     @Autowired
     private MemberServiceFeign memberServiceFeign;
+
+
+    @Value("${ashun}")
+    private String ashun;
+
+    @RequestMapping("/ashun")
+    public String ashunInfo() {
+        return ashun;
+    }
+
     @Override
     @RequestMapping("/orderToMembe")
     public String orderToMember(String name) {

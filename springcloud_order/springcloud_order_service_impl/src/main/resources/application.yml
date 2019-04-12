@@ -7,6 +7,14 @@ server:
 spring:
   application:
     name: ashun-order
+  cloud:
+    config:
+      ####读取后缀
+      profile: dev
+      ####读取config-server注册地址
+      discovery:
+        service-id: config-server
+        enabled: true
 ###服务注册到eureka地址
 eureka:
   client:
@@ -38,3 +46,11 @@ hystrix:
             timeoutInMilliseconds: 5000
 #        timeout:
 #          enabled: false
+#开启监控断点
+#managementendpoints.web.exposure.include=*
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
