@@ -13,7 +13,8 @@ public class ResponseBase {
 	private Object data;
 
 	public ResponseBase() {
-
+		this.rtnCode = 1;
+		this.msg = "操作成功";
 	}
 
 	public ResponseBase(Integer rtnCode, String msg, Object data) {

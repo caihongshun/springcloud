@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author: caihongshun
  * @create: 2019-03-20 15:21
  **/
-@SpringBootApplication(scanBasePackages ={"com.ashun.service","com.ashun.fallBack"})
+@SpringBootApplication(scanBasePackages ={"com.ashun.service","com.ashun.fallBack","com.ashun.design",})
 @EnableFeignClients("com.ashun.feign")
 @EnableEurekaClient
 @EnableHystrix
