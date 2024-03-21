@@ -22,7 +22,7 @@ public class OrderServiceImpl extends BaseApiService implements OrderService {
     @Autowired
     private MemberServiceFeign memberServiceFeign;
     @Override
-    @RequestMapping("/orderToMembe")
+    @RequestMapping("/orderToMember")
     public String orderToMember(String name) {
         UserEntity member = memberServiceFeign.getMember(name);
         System.out.println("orderToMembe线程池名称:" + Thread.currentThread().getName());
