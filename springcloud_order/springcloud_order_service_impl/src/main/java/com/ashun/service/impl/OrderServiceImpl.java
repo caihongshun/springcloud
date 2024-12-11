@@ -21,12 +21,17 @@ public class OrderServiceImpl extends BaseApiService implements OrderService {
 
     @Autowired
     private MemberServiceFeign memberServiceFeign;
+
+//http://localhost:8901/api-order/orderToMember?name=wer
     @Override
     @RequestMapping("/orderToMember")
-    public String orderToMember(String name) {
+    public ResponseBase orderToMember(String name) {
         UserEntity member = memberServiceFeign.getMember(name);
         System.out.println("orderToMembe线程池名称:" + Thread.currentThread().getName());
-        return member==null?"找不到":member.toString();
+
+        ResponseBase res = new ResponseBase();
+        res.setData(member);
+        return res;
     }
 
     // 没有解决服务雪崩效应

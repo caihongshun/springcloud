@@ -1,5 +1,6 @@
 package com.ashun.service;
 
+import com.ashun.base.ResponseBase;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,5 +18,5 @@ public interface OrderService {
      * @Description:
      **/
     @RequestMapping("/orderToMember")
-    public String orderToMember(String name);
+    public ResponseBase orderToMember(String name);
 }
