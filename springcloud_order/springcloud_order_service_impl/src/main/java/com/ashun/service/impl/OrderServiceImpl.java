@@ -7,8 +7,13 @@ import com.ashun.feign.MemberServiceFeign;
 import com.ashun.service.OrderService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.event.EventListener;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
 
 /**
  * @className: OrderServiceImpl
@@ -22,15 +27,27 @@ public class OrderServiceImpl extends BaseApiService implements OrderService {
     @Autowired
     private MemberServiceFeign memberServiceFeign;
 
-//http://localhost:8901/api-order/orderToMember?name=wer
+    @Autowired
+    private ApplicationEventPublisher applicationEventPublisher;
+
+
+    //http://localhost:8901/api-order/orderToMember?name=wer
     @Override
+
     @RequestMapping("/orderToMember")
+    @Transactional
     public ResponseBase orderToMember(String name) {
         UserEntity member = memberServiceFeign.getMember(name);
         System.out.println("orderToMembe线程池名称:" + Thread.currentThread().getName());
 
         ResponseBase res = new ResponseBase();
         res.setData(member);
+
+
+        applicationEventPublisher.publishEvent(new com.ashun.event.ReceiveEvent(new HashMap<String, String>() {{
+            put("10", "SASN00001");
+        }}));
+
         return res;
     }
 

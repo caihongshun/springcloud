@@ -38,3 +38,10 @@ hystrix:
             timeoutInMilliseconds: 5000
 #        timeout:
 #          enabled: false
+
+logging:
+  level:
+    root: INFO
+    com.ashun: DEBUG
+
+
