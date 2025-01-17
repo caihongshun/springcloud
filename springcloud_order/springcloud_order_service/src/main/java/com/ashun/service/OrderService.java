@@ -19,4 +19,6 @@ public interface OrderService {
      **/
     @RequestMapping("/orderToMember")
     public ResponseBase orderToMember(String name);
+
+
 }

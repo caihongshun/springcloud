@@ -7,6 +7,12 @@ server:
 spring:
   application:
     name: ashun-order
+  ##数据源
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/obei_store_logistics?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
 ###服务注册到eureka地址
 eureka:
   client:
@@ -44,4 +50,10 @@ logging:
     root: INFO
     com.ashun: DEBUG
 
-
+#mybatis-plus
+  mybatis-plus:
+    type-aliases-package: com.ashun.myBatis.pojo
+    mapper-locations: classpath:mapper/*.xml
+    configuration:
+      map-underscore-to-camel-case: false
+      auto-mapping-behavior: full
