@@ -1,6 +1,7 @@
 package com.ashun.service.impl;
 
 import com.ashun.base.BaseApiService;
+import com.ashun.base.GoogleAuthenticator;
 import com.ashun.base.ResponseBase;
 import com.ashun.entity.UserEntity;
 import com.ashun.feign.MemberServiceFeign;
@@ -30,6 +31,10 @@ public class OrderServiceImpl extends BaseApiService implements OrderService {
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
 
+    public static void main(String[] args) {
+        String my = GoogleAuthenticator.genSecret("17316173227");
+        System.out.println(my);
+    }
 
     //http://localhost:8901/api-order/orderToMember?name=wer
     @Override
