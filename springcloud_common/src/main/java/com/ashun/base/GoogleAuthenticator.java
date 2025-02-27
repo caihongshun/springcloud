@@ -33,7 +33,7 @@ public class GoogleAuthenticator {
     }
 
 
-    public static Boolean authcode(String codes, String savedSecret) {
+    public static Boolean authCode(String codes, String savedSecret) {
         // enter the code shown on device. Edit this and run it fast before the
         // code expires!
         long code = Long.parseLong(codes);

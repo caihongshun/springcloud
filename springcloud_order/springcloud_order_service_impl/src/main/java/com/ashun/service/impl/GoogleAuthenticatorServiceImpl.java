@@ -33,7 +33,7 @@ public class GoogleAuthenticatorServiceImpl extends BaseApiService implements Go
         ResponseBase res = new ResponseBase();
 
         //校验
-        Boolean isTrue = GoogleAuthenticator.authcode(key, "43I2SJGVZYNHZMY6");
+        Boolean isTrue = GoogleAuthenticator.authCode(key, "43I2SJGVZYNHZMY6");
         res.setRtnCode(isTrue ? 1 : 0);
         res.setMsg(isTrue ? "验证成功!" : "验证吗输入错误!");
 
