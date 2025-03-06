@@ -1,4 +1,4 @@
-package com.ashun.service;
+package com.ashun;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author: caihongshun
  * @create: 2019-03-20 15:21
  **/
-@SpringBootApplication(scanBasePackages ={"com.ashun.service","com.ashun.fallBack","com.ashun.design","com.ashun.event","com.ashun.listener","com.ashun.myBatis"})
+@SpringBootApplication(scanBasePackages ={"com.ashun.*"})
 @EnableFeignClients("com.ashun.feign")
 @MapperScan("com.ashun.myBatis.mapper")
 @EnableEurekaClient

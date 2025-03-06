@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author: caihongshun
  * @create: 2019-03-20 15:11
  **/
-public interface DesignService {
+public interface DesignApi {
     @RequestMapping("/design/strategy")
     public ResponseBase stageQuery(@Validated @RequestBody GetPriceVo getPriceVo);
 }
